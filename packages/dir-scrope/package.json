@@ -1,0 +1,95 @@
+{
+  "name": "dir-scrope",
+  "displayName": "Dir Scrope",
+  "description": "在文件浏览器中为目录添加备注信息，备注来自 README.md 的第一个标题",
+  "version": "0.0.1",
+  "publisher": "dir-scrope",
+  "author": {
+    "name": "Your Name"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/mako-plugin-monorepo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/mako-plugin-monorepo/issues"
+  },
+  "homepage": "https://github.com/your-username/mako-plugin-monorepo#readme",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "readme",
+    "directory",
+    "notes",
+    "file-explorer",
+    "decoration"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dirScrope.refresh",
+        "title": "Refresh Directory Notes"
+      },
+      {
+        "command": "dirScrope.debug",
+        "title": "Debug Dir Scrope"
+      },
+      {
+        "command": "dirScrope.clearCache",
+        "title": "Dir Scrope: Clear Cache"
+      },
+      {
+        "command": "dirScrope.forceRefresh",
+        "title": "Dir Scrope: Force Refresh (Test)"
+      }
+    ],
+    "configuration": {
+      "title": "Dir Scrope",
+      "properties": {
+        "dirScrope.excludePatterns": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/.git/**",
+            "**/.vscode/**",
+            "**/.cursor/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/.tmp/**",
+            "**/temp/**",
+            "**/tmp/**"
+          ],
+          "description": "排除的目录模式，使用 glob 模式"
+        },
+        "dirScrope.cacheSize": {
+          "type": "number",
+          "default": 1000,
+          "description": "缓存大小限制"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npx @vscode/vsce package",
+    "publish": "npx @vscode/vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4",
+    "@vscode/vsce": "^2.22.0"
+  }
+}
+

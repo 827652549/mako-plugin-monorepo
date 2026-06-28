@@ -1,0 +1,31 @@
+{
+  "name": "tencent-career-monitor",
+  "version": "0.1.0",
+  "description": "监控腾讯前端岗位招聘信息，按日期排序并标注最新和上海岗位",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "tencent-career": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/cli.js",
+    "fetch": "node dist/cli.js fetch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["tencent", "career", "monitor", "frontend", "job"],
+  "author": "mako",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dayjs": "^1.11.10",
+    "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/cheerio": "^0.22.35",
+    "typescript": "^5.3.0"
+  }
+}
